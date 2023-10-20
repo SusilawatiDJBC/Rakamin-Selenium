@@ -3,7 +3,7 @@ Feature: Login Page Aplikasi Saucedemo
   Scenario: Success Login
     Given Halaman login saucedemo
     When Input username
-    And Input Password
+    And Input password
     And click Login button
     Then User is on Products page
 
