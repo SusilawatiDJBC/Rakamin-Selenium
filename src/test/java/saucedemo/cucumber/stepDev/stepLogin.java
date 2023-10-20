@@ -20,11 +20,11 @@ public class stepLogin {
 
     @When("Input username")
     public void input_username(){
-        driver.findElement(By.id("user-name")).sendKeys("standard_user");;
+        driver.findElement(By.id("user-name")).sendKeys("standard_user");
     }
     @And("Input password")
     public void input_password(){
-        driver.findElement(By.id("password")).sendKeys("secret_sauce");;
+        driver.findElement(By.id("password")).sendKeys("secret_sauce");
     }
 
     @And("click Login button")
