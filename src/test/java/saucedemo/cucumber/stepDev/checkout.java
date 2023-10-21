@@ -3,6 +3,7 @@ package saucedemo.cucumber.stepDev;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -59,8 +60,22 @@ public class checkout {
     public void click_continue() {
         driver.findElement(By.id("continue")).click();
     }
-    @Then("User is on Checkout overview page")
-    public void user_is_on_checkout_overview_page() {
+    @And("clicks finish")
+    public void clicks_finish() {
+        driver.findElement(By.id("finish")).click();
+    }
+    @Then("User get message checkout complete")
+    public void user_get_message_checkout_complete() {
+        //driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
+//        *[@id="checkout_complete_container"]/h2
+        String CheckoutPageAssert = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
+        Assert.assertEquals(CheckoutPageAssert, "Checkout: Complete!");
 
+    }
+
+    @Then("User get error message postal code required")
+    public void user_get_error_message_postal_code_required() {
+        String ErrorLogin = driver.findElement(By.cssSelector("#checkout_info_container > div > form > div.checkout_info > div.error-message-container.error > h3")).getText();
+        Assert.assertEquals(ErrorLogin,"Error: Postal Code is required");
     }
 }
