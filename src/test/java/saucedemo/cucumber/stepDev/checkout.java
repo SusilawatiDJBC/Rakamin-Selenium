@@ -41,7 +41,7 @@ public class checkout {
     }
 
     @And("click checkout button")
-    public void checkout(){
+    public void checkout_button(){
         driver.findElement(By.id("checkout")).click();
     }
     @And("input first name")
